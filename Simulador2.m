@@ -10,7 +10,7 @@ m = 1;
 l = 10;
 
 %Cálculo del ángulo 
-alpha = ((Q.^2)/(16*pi*((10.^-9)/(36*pi))m*9.81(l.^2))).^(1/3);
+alpha = ((Q.^2)/(16*pi*((10.^-9)/(36*pi))*m*9.81*(l.^2))).^(1/3);
 
 %Mostrar el ángulo
 fprintf('El ángulo es igual a %6.6f°\n', alpha)
