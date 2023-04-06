@@ -1,10 +1,13 @@
 clc
 %Pedir al usuario el valor de carga en C
-Q = input("\nIngresa el valor de la carga en Coulombs: ");
-%Pedir al usuario el peso de la carga en kg
-m = input("\nIngresa el peso de la carga: ");
-%Pedir al usuario la longitud del hilo de las cargas
-l = input("\nIngresa la longitud del hilo: ");
+% Q = input("\nIngresa el valor de la carga en Coulombs: ");
+% %Pedir al usuario el peso de la carga en kg
+% m = input("\nIngresa el peso de la carga: ");
+% %Pedir al usuario la longitud del hilo de las cargas
+% l = input("\nIngresa la longitud del hilo: ");
+Q = 0.001;
+m = 1;
+l = 10;
 
 %Cálculo del ángulo 
 alpha = ((Q.^2)/(16*pi*((10.^-9)/(36*pi))m*9.81(l.^2))).^(1/3);
