@@ -19,6 +19,9 @@ Q = input('Enter charge: ');
 E = input('Enter Electric field: ');
 m = input('Enter mass: ');
 
+%Charge over mass Q/m
+Qm = Q/m
+%Gravity
 g = 9.80665;
 
 x(1) = 0;
@@ -60,7 +63,7 @@ title('Velocity in x')
 xlabel('Time (s)')
 ylabel('Velocity (m/s)')
 subplot(3,3,4)
-plot(t,vy,'k')`````````
+plot(t,vy,'k')
 title('Velocity in y')
 xlabel('Time (s)')
 ylabel('Velocity (m/s)')
