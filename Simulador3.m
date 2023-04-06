@@ -31,13 +31,13 @@ vy(1) = 0;
 ax(1) = (Q/m)*E; % Initial acceleration in x-direction
 ay(1) = -g; % Gravity acts only in y-direction
 
-for t = 2:n
-    x(t) = x(t-1) + vx(t-1)*deltax + 0.5*ax(t-1)*deltax^2;
-    y(t) = y(t-1) + vy(t-1)*deltax + 0.5*ay(t-1)*deltax^2;
-    vx(t) = vx(t-1) + ax(t-1)*deltax;
-    vy(t) = vy(t-1) + ay(t-1)*deltax;
-    ax(t) = (Q/m)*E;    
-    ay(t) = -g;
+for i = 2:n
+    x(i) = x(i-1) + vx(i-1)deltax + 0.5ax(i-1)*deltax^2;
+    y(i) = y(i-1) + vy(i-1)deltax + 0.5ay(i-1)*deltax^2;
+    vx(i) = vx(i-1) + ax(i-1)*deltax;
+    vy(i) = vy(i-1) + ay(i-1)*deltax;
+    ax(i) = (Q/m)*E;
+    ay(i) = -g;
 end
 
 for i = 1:n
