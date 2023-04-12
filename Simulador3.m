@@ -37,8 +37,6 @@ ay = vy./t;
 a_mag = sqrt((ax.^2)+(ay.^2));
 r = 2.*((Q/(2*m))*E.*(t.^2));
 
-
-
 % Plotting
 subplot(3,3,1)
 plot(t,x,'k')
