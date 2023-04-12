@@ -20,7 +20,7 @@ E = input('Enter Electric field: ');
 m = input('Enter mass: ');
 
 % Charge over mass Q/m
-Qm = Q/m
+Qm = Q/m;
 %Gravity
 g = 9.80665;
 % Time 
@@ -82,6 +82,6 @@ xlabel('Time (s)')
 ylabel('Acceleration (m/s^2)')
 subplot(3,3,9)
 plot(t,r,'k')
-title('Magnitude of acceleration')
+title('Separacion')
 xlabel('Time (s)')
 ylabel('Distance between charges')
