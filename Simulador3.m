@@ -19,34 +19,27 @@ Q = input('Enter charge: ');
 E = input('Enter Electric field: ');
 m = input('Enter mass: ');
 
-%Charge over mass Q/m
+% Charge over mass Q/m
 Qm = Q/m
 %Gravity
 g = 9.80665;
+% Time 
+t = a:deltax:b;
 
-x(1) = 0;
-y(1) = 0;
-vx(1) = 0;
-vy(1) = 0;
-ax(1) = (Q/m)*E; % Initial acceleration in x-direction
-ay(1) = -g; % Gravity acts only in y-direction
+% Formulas of postition, velocity and aceleration
+x = (Q/(2*m))*E.*(t.^2);
+y = -g.*((t.^2)/2);
+vx = (Q/m)*E.*t;
+vy = -g.*t;
+v_mag = sqrt((vx.^2)+(vy.^2));
+ax = vx./t;
+ay = vy./t;
+a_mag = sqrt((ax.^2)+(ay.^2));
+r = 2.*((Q/(2*m))*E.*(t.^2));
 
-for i = 2:n
-    x(i) = x(i-1) + vx(i-1)deltax + 0.5*ax(i-1)*deltax^2;
-    y(i) = y(i-1) + vy(i-1)deltax + 0.5*ay(i-1)*deltax^2;
-    vx(i) = vx(i-1) + ax(i-1)*deltax;
-    vy(i) = vy(i-1) + ay(i-1)*deltax;
-    ax(i) = (Q/m)*E;
-    ay(i) = -g;
-end
 
-for i = 1:n
-    a_mag(i) = sqrt(ax(i).^2 + ay(i).^2);
-    v_mag(i) = sqrt(vx(i).^2 + vy(i).^2);
-end
 
 % Plotting
-t = linspace(a,b,n); % Time vector
 subplot(3,3,1)
 plot(t,x,'k')
 title('Position in x')
@@ -87,3 +80,8 @@ plot(t,a_mag,'k')
 title('Magnitude of acceleration')
 xlabel('Time (s)')
 ylabel('Acceleration (m/s^2)')
+subplot(3,3,9)
+plot(t,r,'k')
+title('Magnitude of acceleration')
+xlabel('Time (s)')
+ylabel('Distance between charges')

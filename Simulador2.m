@@ -1,13 +1,10 @@
 clc
 %Pedir al usuario el valor de carga en C
-% Q = input("\nIngresa el valor de la carga en Coulombs: ");
+Q = input("\nIngresa el valor de la carga en Coulombs: ");
 % %Pedir al usuario el peso de la carga en kg
-% m = input("\nIngresa el peso de la carga: ");
+m = input("\nIngresa el peso de la carga: ");
 % %Pedir al usuario la longitud del hilo de las cargas
-% l = input("\nIngresa la longitud del hilo: ");
-Q = 0.001;
-m = 1;
-l = 10;
+l = input("\nIngresa la longitud del hilo: ");
 
 %Cálculo del ángulo 
 alpha = ((Q.^2)/(16*pi*((10.^-9)/(36*pi))*m*9.81*(l.^2))).^(1/3);
@@ -16,23 +13,23 @@ alpha = ((Q.^2)/(16*pi*((10.^-9)/(36*pi))*m*9.81*(l.^2))).^(1/3);
 fprintf('El ángulo es igual a %6.6f°\n', alpha)
 
 %Calculo de "Y" del ángulo
-y1 = 16.*pi.*((10.^-9)/(36*pi)).*m.*9.81.*(l.^2).*((sind(alpha)).^2).*(tand(alpha))-(Q.^2);
+y1 = (16*pi*(8.854*10^-12)*m*9.81*(l.^2)*((sin(alpha)).^2)*(tan(alpha)))-(Q.^2);
 %Graficación del punto del ángulo exacto
 plot(alpha,y1,'r*',LineWidth=5)
 
 
 hold on
 %Creación de la tabla a graficar
-a = -20*alpha:0.01:20*alpha;
-y2 = 16.*pi.*((10.^-9)/(36*pi)).*m.*9.81.*(l.^2).*((sind(a)).^2).*(tand(a))-(Q.^2);
+a = 0:0.01:(pi/2);
+y2 = (16.*pi.*(8.854*10^-12).*m.*9.81.*(l.^2).*((sin(a)).^2).*(tan(a)))-(Q.^2);
 
 %Graficación 
 plot(a,y2,LineStyle="-.",Color="m")
 
 grid on
 
-fun = @(a) 16.*pi.*((10.^-9)/(36*pi)).*m.*9.81.*(l.^2).*((sind(a)).^2).*(tand(a))-(Q.^2);
-x0 = [0, pi/2];
+fun = @(a) (16.*pi.*(8.854*10^-12).*m.*9.81.*(l.^2).*((sin(a)).^2).*(tan(a)))-(Q.^2);
+x0 = alpha;
 x = fzero(fun,x0);
 
-fprintf('El ángulo es igual a %6.6f°\n', x)
+fprintf('El ángulo es igual a %6.6f°\n',x)
