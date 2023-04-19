@@ -1,3 +1,4 @@
+clc
 N = input("Ingresa la cantidad de cargas (no consideres la carga de prueba): ");
 Q_p = input("Ingresa la carga de prueba: ");
 

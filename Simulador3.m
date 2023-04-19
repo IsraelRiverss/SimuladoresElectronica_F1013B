@@ -4,20 +4,10 @@ b = 50;
 deltax = 0.5;
 n = (b-a)/deltax + 1; % Add 1 to include the initial value of x, y, vx, vy, ax, ay
 
-% Initialize variables 
-x = NaN(1,n);
-y = NaN(1,n); 
-vx = NaN(1,n); 
-vy = NaN(1,n); 
-ax = NaN(1,n); 
-ay = NaN(1,n); 
-v_mag = NaN(1,n);
-a_mag = NaN(1,n);
-
 % Prompt user to enter Q, E, m
-Q = input('Enter charge: ');
-E = input('Enter Electric field: ');
-m = input('Enter mass: ');
+Q = input('Enter charge(C): ');
+E = input('Enter Electric field(N/C): ');
+m = input('Enter mass(kg): ');
 
 % Charge over mass Q/m
 Qm = Q/m;
@@ -38,6 +28,7 @@ a_mag = sqrt((ax.^2)+(ay.^2));
 r = 2.*((Q/(2*m))*E.*(t.^2));
 
 % Plotting
+figure
 subplot(3,3,1)
 plot(t,x,'k')
 title('Position in x')
